@@ -35,6 +35,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <utils/Errors.h>
+#include "util/QCameraFlash.h"
 #include <gralloc_priv.h>
 #include "util/QCameraFlash.h"
 #include <binder/Parcel.h>
@@ -2175,6 +2176,12 @@ int QCamera2HardwareInterface::closeCamera()
 
     rc = mCameraHandle->ops->close_camera(mCameraHandle->camera_handle);
     mCameraHandle = NULL;
+
+    if (QCameraFlash::getInstance().releaseFlashFromCamera(mCameraId) != 0) {
+        CDBG("%s: Failed to release flash for camera id: %d",
+                __func__,
+                mCameraId);
+    }
 
     //Notify display HAL that there is no active camera session
     //but avoid calling the same during bootup. Refer to openCamera
