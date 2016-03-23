@@ -313,6 +313,9 @@ int QCamera2Factory::getCameraInfo(int camera_id, struct camera_info *info)
         return NO_INIT;
     }
 
+    ALOGI("Camera id %d API version %d",
+            camera_id, mHalDescriptors[camera_id].device_version);
+
     // Need ANDROID_FLASH_INFO_AVAILABLE property for flashlight widget to
     // work and so get the static data regardless of HAL version
     rc = QCamera3HardwareInterface::getCamInfo(
