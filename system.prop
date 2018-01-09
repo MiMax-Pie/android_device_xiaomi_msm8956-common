@@ -86,6 +86,7 @@ debug.enable.sglscale=1
 debug.mdpcomp.logs=0
 debug.cpurend.vsync=false
 debug.sf.disable_backpressure=1 
+debug.sf.recomputecrop=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
