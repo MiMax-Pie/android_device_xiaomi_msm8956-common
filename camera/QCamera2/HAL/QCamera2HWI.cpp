@@ -43,6 +43,7 @@
 #include <QServiceUtils.h>
 #include <dlfcn.h>
 
+#include "android/QCamera2External.h"
 #include "QCamera2HWI.h"
 #include "QCameraBufferMaps.h"
 #include "QCameraMem.h"

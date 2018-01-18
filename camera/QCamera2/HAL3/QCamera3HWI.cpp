@@ -42,6 +42,7 @@
 #include <utils/Errors.h>
 #include <ui/Fence.h>
 #include <gralloc_priv.h>
+#include "android/QCamera3External.h"
 #include "util/QCameraFlash.h"
 #include "QCamera3HWI.h"
 #include "QCamera3Mem.h"
