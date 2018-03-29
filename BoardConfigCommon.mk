@@ -105,12 +105,6 @@ TARGET_TS_MAKEUP := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 WITH_CM_CHARGER := false
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(VENDOR_PATH)/cmhw
-
 # CNE
 BOARD_USES_QCNE := true
 
@@ -181,6 +175,10 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 BOARD_LIGHTS_VARIANT := aw2013
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Lineage Hardware
+BOARD_HARDWARE_CLASS += \
+    $(VENDOR_PATH)/lineagehw
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
