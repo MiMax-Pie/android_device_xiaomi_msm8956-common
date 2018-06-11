@@ -350,6 +350,10 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+# Widevine
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-service.widevine
+
 # WiFi HAL
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
