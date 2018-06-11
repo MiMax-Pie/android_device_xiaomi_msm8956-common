@@ -38,6 +38,9 @@ persist.bt.enableAptXHD=true
 sys.vendor.shutdown.waittime=500
 ro.build.shutdown_timeout=0
 
+# Boot
+sys.vendor.shutdown.waittime=500
+
 # Camera
 media.camera.ts.monotonic=1
 persist.camera.HAL3.enabled=1
