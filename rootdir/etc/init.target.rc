@@ -84,7 +84,9 @@ service qseecomd /system/vendor/bin/qseecomd
 service perfd /system/vendor/bin/perfd
    class main
    user root
-   disabled
+   group root readproc
+   socket perfd seqpacket 0666 root system
+   writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
