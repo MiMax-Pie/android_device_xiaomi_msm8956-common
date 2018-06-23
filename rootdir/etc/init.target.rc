@@ -134,10 +134,10 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    user system
    group radio diag inet log
    disabled
+   writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
-    start vendor.imsrcsservice
+    start vendor.ims_rtp_daemon
 
 on charger
     setprop persist.sys.usb.config mass_storage
