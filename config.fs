@@ -7,6 +7,9 @@ value:2902
 [AID_VENDOR_QTI_RFS_SHARED]
 value:2903
 
+[AID_VENDOR_ADPL_ODL]
+value:2905
+
 [AID_VENDOR_QRTR]
 value:2906
 
