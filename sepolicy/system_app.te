@@ -1,0 +1,4 @@
+allow system_app sysfs_vibrator:file write;
+allow system_app gx_fpd:binder call;
+allow system_app qemu_hw_mainkeys_prop:file read;
+allow system_app wificond:binder call;

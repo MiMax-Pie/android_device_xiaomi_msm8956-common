@@ -204,6 +204,7 @@ on boot
     chown system system /sys/class/sensors/ap3426-proximity/poll_delay
 
     # LED
+    chmod 0666 /sys/class/leds/flashlight/brightness
     chmod 0666 /sys/class/leds/led:torch_0/brightness
     chmod 0666 /sys/class/leds/led:torch_1/brightness
     chmod 0666 /sys/class/leds/led:switch/brightness
@@ -496,6 +497,7 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
+    group system wakelock
     shutdown critical
     ioprio rt 0
     writepid /dev/cpuset/system-background/tasks

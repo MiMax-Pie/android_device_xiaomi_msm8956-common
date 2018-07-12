@@ -1,3 +1,5 @@
+type fingerprintd_custom_service, service_manager_type;
+
 r_dir_file(fingerprintd, firmware_file)
 allow fingerprintd fpc_data_file:dir rw_dir_perms;
 allow fingerprintd fpc_data_file:sock_file { create unlink };
