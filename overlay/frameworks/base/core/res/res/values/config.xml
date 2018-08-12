@@ -315,10 +315,6 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
-
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
 
@@ -482,4 +478,10 @@
     
     <!-- True if Unprocessed audio source supports the required frequency range and level -->
     <bool name="config_supportAudioSourceUnprocessed">true</bool>
+
+    <!-- Button backlight -->
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    
+    <!--  Night display -->
+    <bool name="config_nightDisplayAvailable">true</bool>
 </resources>

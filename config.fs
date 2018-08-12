@@ -1,10 +1,10 @@
-[AID_QTI_DIAG]
+[AID_VENDOR_QTI_DIAG]
 value:2901
 
-[AID_QTI_RFS]
+[AID_VENDOR_QTI_RFS]
 value:2902
 
-[AID_QTI_RFS_SHARED]
+[AID_VENDOR_QTI_RFS_SHARED]
 value:2903
 
 [vendor/bin/wcnss_filter]
