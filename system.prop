@@ -122,7 +122,10 @@ persist.radio.sw_mbn_update=0
 persist.data.qmi.adb_logmask=0
 persist.radio.aosp_usr_pref_sel=true
 
-# TCP
+# RescueParty
+persist.sys.disable_rescue=true
+
+# Tcp
 net.tcp.2g_init_rwnd=10
 
 # Time
