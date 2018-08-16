@@ -329,11 +329,11 @@ PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
-PRODUCT_PACKAGES += \
-    telephony-ext
+#PRODUCT_PACKAGES += \
+#    telephony-ext
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
