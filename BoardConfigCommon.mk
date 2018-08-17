@@ -24,7 +24,7 @@ TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT := cortex-a53
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
@@ -177,8 +177,8 @@ BOARD_LIGHTS_VARIANT := aw2013
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += \
-    $(VENDOR_PATH)/lineagehw
+#BOARD_HARDWARE_CLASS += \
+#    $(VENDOR_PATH)/lineagehw
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
@@ -195,7 +195,6 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_USE_SDCLANG := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
@@ -228,5 +227,3 @@ WIFI_DRIVER_FW_PATH_STA     := "sta"
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/msm8956-common/BoardConfigVendor.mk
-
-ALLOW_MISSING_DEPENDENCIES=true
