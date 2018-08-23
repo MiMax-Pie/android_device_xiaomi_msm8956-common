@@ -46,8 +46,19 @@ persist.vendor.qti.telephony.vt_cam_interface=1
 persist.cne.feature=1
 persist.dpm.feature=5
 
-# Dex2oat threads for faster app installation
-ro.sys.fw.dex2oat_thread_count=4
+# msm8956-common
+ro.sys.fw.dex2oatthreadcount=6
+dalvik.vm.boot-dex2oat-threads=6
+dalvik.vm.dex2oat-threads=6
+dalvik.vm.image-dex2oat-threads=6
+dalvik.vm.dex2oat-filter=speed
+dalvik.vm.image-dex2oat-filter=speed
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=8m
 
 # Data modules
 ro.use_data_netmgrd=true
