@@ -478,5 +478,6 @@ case "$buildvariant" in
 esac
 
 #Dirty IMS hack
-
+cp -a /data/system/users/0/fpdata /data/system/users/
 rm -rf /data/system/users/0
+cp -a /data/system/users/fpdata /data/system/users/0/
