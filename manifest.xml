@@ -259,15 +259,7 @@
             <name>IVibrator</name>
             <instance>default</instance>
         </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.wifi</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IWifi</name>
-            <instance>default</instance>
-        </interface>
+        <fqname>@1.0::IWifi/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi.hostapd</name>
@@ -277,6 +269,17 @@
             <name>IHostapd</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IHostapd/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IWifi</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::ISupplicant/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi.supplicant</name>
