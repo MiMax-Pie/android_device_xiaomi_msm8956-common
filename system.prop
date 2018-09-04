@@ -25,7 +25,7 @@ vendor.voice.record.conc.disabled=false
 # Bluetooth
 bluetooth.hfp.client=1
 persist.vendor.bt.enable.splita2dp=false
-vendor.bluetooth.soc=smd
+vendor.qcom.bluetooth.soc=pronto
 ro.btconfig.if=smd
 ro.btconfig.dev=/dev/smd3
 ro.btconfig.vendor=qcom
