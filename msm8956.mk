@@ -202,7 +202,8 @@ PRODUCT_PACKAGES += \
 
 # GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.1-impl-qti \
+    android.hardware.gnss@1.1-service-qti
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -210,7 +211,13 @@ PRODUCT_PACKAGES += \
     gps.msm8952 \
     libcurl \
     libgnss \
-    libgnsspps
+    libgnsspps \
+    libgps.utils \
+    libloc_core \
+    libloc_ds_api \
+    libloc_stub \
+    liblocation_api \
+    libvehiclenetwork-native
 
 PRODUCT_PACKAGES += \
     flp.conf \
