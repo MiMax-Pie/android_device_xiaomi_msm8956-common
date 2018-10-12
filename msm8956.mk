@@ -179,9 +179,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     org.codeaurora.camera
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.0-service-custom
+# Fingerprint (kenzo/kate)
+#PRODUCT_PACKAGES += \
+#    android.hardware.biometrics.fingerprint@2.0-service-custom
 
 # FM
 PRODUCT_PACKAGES += \
