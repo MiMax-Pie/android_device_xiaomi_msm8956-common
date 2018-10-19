@@ -40,9 +40,6 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno510
 TARGET_USES_64_BIT_BINDER := true
 ENABLE_CPUSETS := true
 
-# Shipping API
-PRODUCT_SHIPPING_API_LEVEL := 22
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8952
 TARGET_NO_BOOTLOADER := true
@@ -104,7 +101,7 @@ BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_TS_MAKEUP := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/bin/mm-qcamera-daemon=23
+    /system/bin/mm-qcamera-daemon=24
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
