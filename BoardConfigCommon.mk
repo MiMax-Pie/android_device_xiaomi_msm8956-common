@@ -101,7 +101,7 @@ BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_TS_MAKEUP := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/bin/mm-qcamera-daemon=24
+    /system/vendor/bin/mm-qcamera-daemon=24
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
