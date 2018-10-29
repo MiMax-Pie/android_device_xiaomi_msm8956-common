@@ -2,7 +2,6 @@ OLD_LOCAL_PATH := $(LOCAL_PATH)
 LOCAL_PATH:=$(call my-dir)
 
 # Build command line test app: mm-qcamera-app
-include $(LOCAL_PATH)/../../../common.mk
 include $(CLEAR_VARS)
 
 LOCAL_CFLAGS:= \
@@ -37,9 +36,6 @@ LOCAL_C_INCLUDES+= \
         $(LOCAL_PATH)/../common \
         $(LOCAL_PATH)/../../../mm-image-codec/qexif \
         $(LOCAL_PATH)/../../../mm-image-codec/qomx_core
-
-LOCAL_C_INCLUDES+= $(kernel_includes)
-LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 
 LOCAL_CFLAGS += -DCAMERA_ION_HEAP_ID=ION_IOMMU_HEAP_ID
 ifeq ($(TARGET_BOARD_PLATFORM),msm8974)
@@ -91,6 +87,8 @@ LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 LOCAL_MODULE:= mm-qcamera-app
 LOCAL_VENDOR_MODULE := true
 
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
+
 include $(BUILD_EXECUTABLE)
 
 # Build tuning library
@@ -128,9 +126,6 @@ LOCAL_C_INCLUDES+= \
         $(LOCAL_PATH)/../common \
         $(LOCAL_PATH)/../../../mm-image-codec/qexif \
         $(LOCAL_PATH)/../../../mm-image-codec/qomx_core
-
-LOCAL_C_INCLUDES+= $(kernel_includes)
-LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 
 LOCAL_CFLAGS += -DCAMERA_ION_HEAP_ID=ION_IOMMU_HEAP_ID
 ifeq ($(TARGET_BOARD_PLATFORM),msm8974)
@@ -174,6 +169,8 @@ LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_SHARED_LIBRARIES:= \
          libcutils libdl libmmcamera_interface
+
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 LOCAL_MODULE_TAGS := optional
 
