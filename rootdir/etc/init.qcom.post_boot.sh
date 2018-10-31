@@ -238,18 +238,12 @@ else
     soc_id=`cat /sys/devices/system/soc/soc0/id`
 fi
 
-case "$soc_id" in
-    "278")
-    start setextracpucores;;
-esac
-
-setextracpucores()
-{
-	echo "0-2,4-7" > write /dev/cpuset/foreground/cpus
-	echo "4-7" > /dev/cpuset/foreground/boost/cpus
-	echo "0" > /dev/cpuset/background/cpus
-	echo "0-2" > /dev/cpuset/system-background/cpus
-	echo "0-7" > /dev/cpuset/top-app/cpus
-	echo 1 > /sys/devices/system/cpu/cpu6/online
-	echo 1 > /sys/devices/system/cpu/cpu7/online
-}
+if [ "$soc_id" == "278" ]; then
+    echo "0-2,4-7" > write /dev/cpuset/foreground/cpus
+    echo "4-7" > /dev/cpuset/foreground/boost/cpus
+    echo "0" > /dev/cpuset/background/cpus
+    echo "0-2" > /dev/cpuset/system-background/cpus
+    echo "0-7" > /dev/cpuset/top-app/cpus
+    echo 1 > /sys/devices/system/cpu/cpu6/online
+    echo 1 > /sys/devices/system/cpu/cpu7/online
+fi
