@@ -46,7 +46,6 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 ramoops_memreserve=4M loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
@@ -216,8 +215,8 @@ PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wifi
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
@@ -230,6 +229,7 @@ BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_AP      := "ap"
 WIFI_DRIVER_FW_PATH_STA     := "sta"
+WIFI_DRIVER_FW_PATH_P2P     := "p2p"
 
 #Enable DRM plugins 64 bit compilation
 TARGET_ENABLE_MEDIADRM_64 := true
