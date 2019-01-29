@@ -346,7 +346,8 @@ PRODUCT_PACKAGES += \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext
+    telephony-ext \
+    com.qti.dpmframework
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
