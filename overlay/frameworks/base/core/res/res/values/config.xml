@@ -472,6 +472,8 @@
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
 
+    <bool name="config_enableManualSubProvisioning">true</bool>
+
     <!-- Misc -->
     <bool name="config_buttonTextAllCaps">false</bool>
     <dimen name="config_dialogCornerRadius">8.0dip</dimen>
