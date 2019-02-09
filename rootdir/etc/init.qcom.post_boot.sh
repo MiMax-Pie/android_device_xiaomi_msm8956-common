@@ -229,8 +229,8 @@ setprop persist.vendor.mmi.misc_dev_path $real_path
 # Adrenoboost
 echo 1 > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost
 
-# Set CFQ as default io-schedular after boot
-setprop sys.io.scheduler "cfq"
+# Set BFQ as default io-schedular after boot
+setprop sys.io.scheduler "bfq"
 
 if [ -f /sys/devices/soc0/soc_id ]; then
     soc_id=`cat /sys/devices/soc0/soc_id`
