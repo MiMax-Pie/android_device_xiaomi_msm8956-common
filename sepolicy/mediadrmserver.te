@@ -1,0 +1,2 @@
+allow mediadrmserver init:binder call;
+allow mediadrmserver init:binder transfer;

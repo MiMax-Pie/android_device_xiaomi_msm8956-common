@@ -1,0 +1,1 @@
+allow poweroffalarm_app alarm_handled_prop:file read;
