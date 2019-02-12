@@ -1,0 +1,49 @@
+# Battery
+/sys/devices/soc.0/qpnp-vadc-[0-9]+(/.*)?                             u:object_r:sysfs_vadc_dev:s0
+
+# Bluetooth
+/vendor/bin/btnvtool                                                  u:object_r:bluetooth_loader_exec:s0
+
+# Camera
+/sys/devices(/platform)?/soc\.0/[0-9a-f]+\.qcom,msm-cam/video4linux/video[0-33]/name(/.*)?  u:object_r:sysfs_graphics:s0
+/sys/devices(/platform)?/soc\.0/[0-9a-f]+\.qcom,cci/[0-9]+\.qcom,camera/video4linux/video[0-33]/name(/.*)?  u:object_r:sysfs_graphics:s0
+
+# Decrypt
+/data/decrypt.txt                                                     u:object_r:decrypt_file:s0
+
+# DSP
+/dev/block/platform/soc.0/7824900.sdhci/by-name/dsp                   u:object_r:dsp_block_device:s0
+
+# DRM
+/data/vendor/mediadrm(/.*)?                                                     u:object_r:mediadrm_vendor_data_file:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service.clearkey   	u:object_r:hal_drm_clearkey_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service.widevine     u:object_r:hal_drm_widevine_exec:s0
+
+# IR Blaster
+/dev/lirc[0-9]*                                                       u:object_r:lirc_device:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service-custom       u:object_r:hal_ir_default_exec:s0
+
+# flashlight
+/sys/devices/soc.0/qpnp-flash-led-23/leds/flashlight/brightness       u:object_r:sysfs_flashlight:s0
+
+# Fingerprint
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service-custom u:object_r:hal_fingerprint_8956_exec:s0
+
+# DT2W
+/sys/android_touch/doubletap2wake                                     u:object_r:sysfs_dt2w:s0
+
+# Input devices
+/(vendor|system/vendor)/usr/idc(/.*)?                                 u:object_r:idc_file:s0
+/(vendor|system/vendor)/usr/keylayout(/.*)?                           u:object_r:keylayout_file:s0
+
+# Persist
+/dev/block/platform/soc.0/7824900.sdhci/by-name/persist               u:object_r:persist_block_device:s0
+
+# Subsystem restart
+/sys/devices/soc\.0/[0-9a-f]+\.qcom,lpass/subsys[0-9]+/name           u:object_r:sysfs_ssr:s0
+/sys/devices/soc\.0/[0-9a-f]+\.qcom,mss/subsys[0-9]+/name             u:object_r:sysfs_ssr:s0
+/sys/devices/soc\.0/[0-9a-f]+\.qcom,pronto/subsys[0-9]+/name          u:object_r:sysfs_ssr:s0
+/sys/devices/soc\.0/[0-9a-f]+\.qcom,venus/subsys[0-9]+/name           u:object_r:sysfs_ssr:s0
+
+# Loop
+/sys/devices/virtual/block/loop[0-9]+/loop(/.*)?                      u:object_r:sysfs_loop:s0

@@ -1,2 +1,0 @@
-allow perfd hal_power_default:process signull;
-allow perfd self:capability { dac_override kill };
