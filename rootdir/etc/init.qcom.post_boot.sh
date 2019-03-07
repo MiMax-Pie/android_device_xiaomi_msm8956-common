@@ -35,6 +35,12 @@ adj_series=`cat /sys/module/lowmemorykiller/parameters/adj`
 adj_1="${adj_series#*,}"
 set_almk_ppr_adj="${adj_1%%,*}"
 
+if [ -f /sys/devices/soc0/soc_id ]; then
+    soc_id=`cat /sys/devices/soc0/soc_id`
+else
+    soc_id=`cat /sys/devices/system/soc/soc0/id`
+fi
+
 # PPR and ALMK should not act on HOME adj and below.
 # Normalized ADJ for HOME is 6. Hence multiply by 6
 # ADJ score represented as INT in LMK params, actual score can be in decimal
@@ -102,7 +108,7 @@ else
     panel=${panel:2:4}
 fi
 
-# Apply Scheduler and Governor settings for 8956
+# Apply Scheduler and Governor settings for 8956 / 8976
 # SoC IDs are 266, 274, 277, 278
 # HMP scheduler (big.Little cluster related) settings
 echo 95 > /proc/sys/kernel/sched_upmigrate
@@ -115,6 +121,11 @@ echo 3 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_nr_run
 echo 3 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_nr_run
 echo 3 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_nr_run
 echo 3 > /sys/devices/system/cpu/cpu5/sched_mostly_idle_nr_run
+
+if [ "$soc_id" == "278" ]; then
+    echo 3 > /sys/devices/system/cpu/cpu6/sched_mostly_idle_nr_run
+    echo 3 > /sys/devices/system/cpu/cpu7/sched_mostly_idle_nr_run
+fi
 
 for devfreq_gov in /sys/class/devfreq/*qcom,mincpubw*/governor
 do
@@ -169,7 +180,7 @@ echo 1382400 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
 echo "19000 1382400:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
 echo "85 1382400:90 1747200:80" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
 
-# HMP Task packing settings for 8956
+# HMP Task packing settings for 8956 / 8976
 echo 30 > /proc/sys/kernel/sched_small_task
 echo 20 > /sys/devices/system/cpu/cpu0/sched_mostly_idle_load
 echo 20 > /sys/devices/system/cpu/cpu1/sched_mostly_idle_load
@@ -177,6 +188,11 @@ echo 20 > /sys/devices/system/cpu/cpu2/sched_mostly_idle_load
 echo 20 > /sys/devices/system/cpu/cpu3/sched_mostly_idle_load
 echo 20 > /sys/devices/system/cpu/cpu4/sched_mostly_idle_load
 echo 20 > /sys/devices/system/cpu/cpu5/sched_mostly_idle_load
+
+if [ "$soc_id" == "278" ]; then
+    echo 20 > /sys/devices/system/cpu/cpu6/sched_mostly_idle_load
+    echo 20 > /sys/devices/system/cpu/cpu7/sched_mostly_idle_load
+fi
 
 # Disable sched boost
 echo 0 > /proc/sys/kernel/sched_boost
@@ -194,7 +210,7 @@ echo 1 > /sys/module/lpm_levels/parameters/lpm_prediction
 # Enable Low power modes
 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
-# Disable L2 GDHS on 8956
+# Disable L2 GDHS on 8956 / 8976
 echo N > /sys/module/lpm_levels/system/a53/a53-l2-gdhs/idle_enabled
 echo N > /sys/module/lpm_levels/system/a72/a72-l2-gdhs/idle_enabled
 
@@ -231,12 +247,6 @@ echo 1 > /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost
 
 # Set BFQ as default io-schedular after boot
 setprop sys.io.scheduler "bfq"
-
-if [ -f /sys/devices/soc0/soc_id ]; then
-    soc_id=`cat /sys/devices/soc0/soc_id`
-else
-    soc_id=`cat /sys/devices/system/soc/soc0/id`
-fi
 
 if [ "$soc_id" == "278" ]; then
     echo "0-2,4-7" > write /dev/cpuset/foreground/cpus
