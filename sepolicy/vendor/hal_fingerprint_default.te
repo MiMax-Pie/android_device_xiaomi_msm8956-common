@@ -10,6 +10,10 @@ allow hal_fingerprint_default keystore:keystore_key { add_auth };
 allow hal_fingerprint_default storage_file:dir { search };
 allow hal_fingerprint_default storage_file:lnk_file read;
 
+allow hal_fingerprint_default fingerprintd_data_file:dir { remove_name write };
+allow hal_fingerprint_default fingerprintd_data_file:file getattr;
+allow hal_fingerprint_default fpc_stat_data_file:file { append getattr open };
+
 binder_call(hal_fingerprint_default, servicemanager)
 binder_call(hal_fingerprint_default, keystore)
 

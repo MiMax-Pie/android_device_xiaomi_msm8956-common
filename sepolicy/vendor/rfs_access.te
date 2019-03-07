@@ -1,1 +1,6 @@
-allow rfs_access self:capability net_raw;
+allow rfs_access self:capability dac_override;
+allow rfs_access vfat:dir search;
+allow rfs_access vfat:file { getattr open read };
+allow rfs_access mnt_vendor_file:dir search;
+allow rfs_access mnt_vendor_file:file { getattr open read };
+allow rfs_access persist_block_device:dir search;

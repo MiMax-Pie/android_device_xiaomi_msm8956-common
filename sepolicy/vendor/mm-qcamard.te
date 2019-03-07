@@ -2,3 +2,5 @@ r_dir_file(mm-qcamerad, sysfs_graphics)
 allow mm-qcamerad camera_socket:sock_file { create unlink write };
 type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
 type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad mnt_vendor_file:dir search;
+allow mm-qcamerad mnt_vendor_file:file { open read };
