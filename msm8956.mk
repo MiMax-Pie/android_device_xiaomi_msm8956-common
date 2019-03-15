@@ -98,8 +98,6 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8952 \
     audio.r_submix.default \
     audio.usb.default \
-    libaacwrapper \
-    libnl \
     libaudio-resampler \
     libaudioroute \
     libqcompostprocbundle \
@@ -347,8 +345,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext \
-    com.qti.dpmframework \
-    WfdCommon
+    com.qti.dpmframework
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
