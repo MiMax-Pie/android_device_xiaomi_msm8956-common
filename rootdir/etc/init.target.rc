@@ -137,7 +137,6 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
     start thermal-engine
-    start vendor.power_off_alarm
 
 service adsprpcd /system/vendor/bin/adsprpcd
     class main
@@ -153,12 +152,6 @@ service per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system
-
-service vendor.power_off_alarm /vendor/bin/power_off_alarm
-    class core
-    group system
-    disabled
-    oneshot
 
 service vendor.per_proxy /system/vendor/bin/pm-proxy
     class core
