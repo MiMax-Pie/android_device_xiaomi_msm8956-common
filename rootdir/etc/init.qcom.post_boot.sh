@@ -67,23 +67,16 @@ echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 # For 64-bit arch, vmpressure_file_min = LMK minfree's last bin value
  
 if [ $MemTotal -gt 2097152 ]; then
+    echo 10 > /sys/module/process_reclaim/parameters/pressure_min
     echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
     echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
     echo 80640 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 else
+    echo 10 > /sys/module/process_reclaim/parameters/pressure_min
     echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
     echo "14746,18432,22118,25805,40000,55000" > /sys/module/lowmemorykiller/parameters/minfree
     echo 55000 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 fi
-
-echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-echo 70 > /sys/module/process_reclaim/parameters/pressure_max
-echo 50 > /sys/module/process_reclaim/parameters/pressure_min
-echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
-echo 0 >  /sys/module/lowmemorykiller/parameters/lmk_fast_run
-echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-echo 35 > /proc/sys/vm/swappiness
-echo 0 > /proc/sys/vm/page-cluster
 
 if [ $MemTotal -le 2097152 ]; then
 #Enable B service adj transition for 2GB or less memory
